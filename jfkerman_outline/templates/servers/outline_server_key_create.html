@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>Create new key</h1>
+    <form method="post" class="signup">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="btn-group" role="group">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a class="btn btn-secondary" href="{% url 'server_keys' server_slug %}">Cancel</a>
+        </div>
+    </form>
+{% endblock content %}

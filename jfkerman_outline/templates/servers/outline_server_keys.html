@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Keys list</h1>
+    <div class="d-flex flex-column gap-2">
+        {% for key in keys %}
+            <div class="card d-flex flex-row flex-wrap">
+                <div class="card-body">
+                    <h4 class="card-title">{{ key.name }}</h4>
+                    <p class="card-text">
+                        <strong>Key URL:</strong> {{ key.key }}</br>
+                        <strong>Data limit:</strong> {{ key.data_used }}/{{ key.data_limit }} </br>
+                        <strong>Created:</strong> {{ key.created_at }}
+                    </p>
+                </div>
+                <div class="card-block mr-auto p-2">
+                    <div class="btn-group-vertical h-100">
+                        <a href="{% url 'server_key_update' key.server.slug key.pk %}" class="btn btn-secondary h-50 d-inline-flex align-items-center text-center">Edit</a>
+                        <a href="{% url 'server_key_delete' key.server.slug key.pk %}" class="btn btn-danger h-50 d-inline-flex align-items-center text-center">Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </br>
+    <a href="{% url 'server_key_create' server_slug %}" class="btn btn-primary">Create new key</a>
+{% endblock content %}
