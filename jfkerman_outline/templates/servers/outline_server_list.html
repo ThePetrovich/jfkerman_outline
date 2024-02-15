@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static i18n %}
 {% block content %}
-    <h1>Server list</h1>
+    <h1>{% translate "Server list" %}</h1>
     <div class="d-flex gap-2 mb-3 mt-3 flex-column">
         {% for server in servers %}
             <div class="card d-flex flex-row flex-wrap">
@@ -11,12 +11,12 @@
                 <div class="card-body flex-card-info">
                     <h4 class="card-title">{{ server.name }}</h4>
                     <p class="card-text">
-                        <strong>Server URL:</strong> {{ server.url }}</br>
-                        <strong>Port:</strong> {{ server.port }}
+                        <strong>{% translate "Server URL:" %}</strong> {{ server.url }}</br>
+                        <strong>{% translate "Port:" %}</strong> {{ server.port }}
                     </p>
                 </div>
                 <div class="card-block mr-auto p-2 d-flex flex-card-btn" >
-                    <a href="{% url 'server_keys' server.slug %}" class="btn btn-primary w-100 h-100 d-inline-flex align-items-center justify-content-center">My keys</br>({{ server.key_count }} / {{ server.keys_per_user }})</a>
+                    <a href="{% url 'server_keys' server.slug %}" class="btn btn-primary w-100 h-100 d-inline-flex align-items-center justify-content-center">{% translate "My keys" %}</br>({{ server.key_count }} / {{ server.keys_per_user }})</a>
                 </div>
             </div>
         {% endfor %}

@@ -77,53 +77,6 @@
 {% endblock javascript %}
 </head>
 <body>
-  {% comment %} <div class="mb-1">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler navbar-toggler-right"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">jfkerman-outline</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'server_list' %}">Server List</a>
-            </li>
-            {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link"
-                   href="{% url 'users:detail' request.user.username %}">{% translate "My Profile" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
-              </li>
-            {% else %}
-              {% if ACCOUNT_ALLOW_REGISTRATION %}
-                <li class="nav-item">
-                  {# URL provided by django-allauth/account/urls.py #}
-                  <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
-                </li>
-              {% endif %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div> {% endcomment %}
   <script src="{% static "js/base.js" %}"></script>
   <div class="navbar-jfk">
     <div class="align-center">
@@ -164,7 +117,6 @@
       {% endfor %}
     {% endif %}
     {% block content %}
-      <p>Use this document as a way to quick start any new project.</p>
     {% endblock content %}
   </main>
   <!-- /container -->
@@ -187,19 +139,19 @@
           <h2>jfkerman.me</h2>
           <p>Copyright © 2024</p>
           <p>Powered by hopes, dreams, and a lot of alcohol</p>
-          <a href="#">Условия использования</a>
+          <a href="#">{% translate "Usage policy" %}</a>
         </div>
         <div class="footer-jfk-content">
-          <h2>Контакты</h2>
+          <h2>{% translate "Contacts" %}</h2>
           <p>admin@jfkerman.me</p>
           <span style="color: var(--color-gray-2);">Matrix: @jfkerman:jfkerman.me</span>
         </div>
         <div class="footer-jfk-content">
-          <h2>Ресурсы для разработчиков:</h2>
-          <a href="https://status.jfkerman.me">Состояние серверов</a> 
+          <h2>{% translate "For developers:" %}</h2>
+          <a href="https://status.jfkerman.me">{% translate "Server status" %}</a> 
           </br></br>
-          <h2>Социальные сети:</h2>
-          <p>Тут пока ничего нет</p>
+          <h2>{% translate "Social:" %}</h2>
+          <p>{% translate "Nothing to see here" %}</p>
         </div>
     </div>
   </div>

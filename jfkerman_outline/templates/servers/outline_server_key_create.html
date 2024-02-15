@@ -1,19 +1,19 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 {% load datalimits %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <h1>Create new key</h1>
+    <h1>{% translate "Create new key" %}</h1>
     <div class="card card-body mt-3">
         <form method="post" class="signup">
             {% csrf_token %}
             {{ form|crispy }}
             <p>
-                <strong>Server limit:</strong> {{ data_limit|datalimitmb }}
+                <strong>{% translate "Server limit:" %}</strong> {{ data_limit|datalimitmb }}
             </p>
             <div class="btn-group" role="group">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <a class="btn btn-secondary" href="{% url 'server_keys' server_slug %}">Cancel</a>
+                <button type="submit" class="btn btn-primary">{% translate "Create" %}</button>
+                <a class="btn btn-secondary" href="{% url 'server_keys' server_slug %}">{% translate "Cancel" %}</a>
             </div>
         </form>
     </div>

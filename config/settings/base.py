@@ -81,6 +81,7 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "django_apscheduler",
 ]
 
 LOCAL_APPS = [
@@ -281,6 +282,8 @@ SOCIALACCOUNT_FORMS = {"signup": "jfkerman_outline.users.forms.UserSocialSignupF
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+APSCHEDULER_RUN_NOW_TIMEOUT = 25
 
 from django.contrib.messages import constants as messages
 

@@ -1,14 +1,14 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 {% load datalimits %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <h1>Editing key <span class="text-muted">{{ key.name }}</span></h1>
+    <h1>{% translate "Editing key" %} <span class="text-muted">{{ key.name }}</span></h1>
 
     <div class="mb-3">
-        <label for="form_key">Key</label>
+        <label for="form_key">{% translate "Key" %}</label>
         <input class="form-control" type="text" value="{{ key.key }}" id="form_key" disabled />
-        <div id="id_key_helptext" class="form-text">Key for use in Outline client</div>
+        <div id="id_key_helptext" class="form-text">{% translate "Key for use in Outline client" %}</div>
     </div>
 
     <div class="card card-body">
@@ -16,14 +16,14 @@
             {% csrf_token %}
             {{ form|crispy }}
             <p>
-                <strong>Server limit:</strong> {{ data_limit|datalimitmb }}
+                <strong>{% translate "Server limit:" %}</strong> {{ data_limit|datalimitmb }}
             </p>
             <div class="d-flex justify-content-between">
                 <div class="btn-group" role="group">
-                    <button type="submit" class="btn btn-primary">Update</button>
-                    <a class="btn btn-secondary" href="{{ previous }}">Cancel</a>
+                    <button type="submit" class="btn btn-primary">{% translate "Update" %}</button>
+                    <a class="btn btn-secondary" href="{{ previous }}">{% translate "Cancel" %}</a>
                 </div>
-                <a class="btn btn-danger" href="{% url 'server_key_delete' key.server.slug key.pk %}">Delete</a>
+                <a class="btn btn-danger" href="{% url 'server_key_delete' key.server.slug key.pk %}">{% translate "Delete" %}</a>
             </div>
         </form>
     </div>

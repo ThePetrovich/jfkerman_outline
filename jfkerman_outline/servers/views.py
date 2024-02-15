@@ -48,7 +48,7 @@ class OutlineServerKeyCreateView(LoginRequiredMixin, SuccessMessageMixin, Create
     fields = ['name', 'data_limit']
     template_name = 'servers/outline_server_key_create.html'
 
-    success_message = "Key created successfully"
+    success_message = _("Key created successfully")
 
     def get_context_data(self, **kwargs):
         context = super(OutlineServerKeyCreateView, self).get_context_data(**kwargs)
@@ -104,7 +104,7 @@ class OutlineServerKeyUpdateView(LoginRequiredMixin, SuccessMessageMixin, Update
 
     context_object_name = 'key'
 
-    success_message = "Key updated successfully"
+    success_message = _("Key updated successfully")
 
     def get_context_data(self, **kwargs):
         context = super(OutlineServerKeyUpdateView, self).get_context_data(**kwargs)
@@ -152,7 +152,7 @@ class OutlineServerKeyUpdateView(LoginRequiredMixin, SuccessMessageMixin, Update
                     form.instance.data_limit = 0
             
         except Exception as e:
-            messages.error(self.request, "Failed to update key: external API error", extra_tags='danger')
+            messages.error(self.request, _("Failed to update key: external API error"), extra_tags='danger')
             return super().form_invalid(form)
 
         return super().form_valid(form)
@@ -163,7 +163,7 @@ class OutlineServerKeyDeleteView(LoginRequiredMixin, SuccessMessageMixin, Delete
     template_name = 'servers/outline_server_key_confirm_delete.html'
     context_object_name = 'key'
 
-    success_message = "Key deleted successfully"
+    success_message = _("Key deleted successfully")
 
     def get_context_data(self, **kwargs):
         context = super(OutlineServerKeyDeleteView, self).get_context_data(**kwargs)
@@ -200,7 +200,7 @@ class OutlineServerKeyDeleteView(LoginRequiredMixin, SuccessMessageMixin, Delete
                 pass
             
         except Exception as e:
-            messages.error(self.request, "Failed to update key: external API error", extra_tags='danger')
+            messages.error(self.request, _("Failed to delete key: external API error"), extra_tags='danger')
             raise e
 
         messages.info(self.request, self.success_message, tags='danger')
@@ -229,7 +229,13 @@ class OutlineServerDeleteAllKeysView(LoginRequiredMixin, ListView):
         keys = self.get_queryset()
 
         for key in keys:
-            key.delete()
+            client = OutlineVPN(key.server.api_url, key.server.api_cert)
+            try:
+                client.delete_key(key.key_id)
+                key.delete()         
+            except Exception as e:
+                messages.error(self.request, _("Failed to delete key: external API error"), extra_tags='danger')
+                raise e
 
         messages.info(self.request, _("All keys deleted successfully"))
         return HttpResponseRedirect(reverse_lazy('server_list'))
