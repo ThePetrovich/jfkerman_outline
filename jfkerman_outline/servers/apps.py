@@ -7,6 +7,8 @@ class ServersConfig(AppConfig):
     name = "jfkerman_outline.servers"
     verbose_name = _("Servers")
 
+    import jfkerman_outline.servers.templatetags.datalimits
+
     def ready(self):
         try:
             import jfkerman_outline.servers.signals  # noqa: F401

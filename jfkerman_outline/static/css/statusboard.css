@@ -1,0 +1,58 @@
+main {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+small.timeinfo {
+    opacity: 0.7;
+    margin: 0.2em 0;
+    display: block;
+}
+
+div.servicegroup {
+    margin-top: 1em;
+}
+
+div.servicegroup a.servicegroup-name {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+div.servicegroup a.servicegroup-name::before {
+    display: inline-block;
+    content: "";
+    vertical-align: -.125em;
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+    width: 1rem;
+    height: 1rem;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>');
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+div.servicegroup a.servicegroup-name.collapsed::before {
+    transform: rotate(-90deg);
+}
+
+div.servicegroup.servicegroup-empty {
+    opacity: 0.3;
+}
+div.servicegroup.servicegroup-empty a.servicegroup-name::before {
+}
+
+div.form-group.required label.form-label:after {
+    content: "*";
+}
+
+.footer {
+    text-align: center;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}

@@ -1,10 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <h1>Delete key</h1>
+    <h1>Delete All Keys</h1>
 
     <div class="card card-body mt-3">
-    <p>Are you sure you want to delete the key "{{ key.name }}"? This action cannot be undone.</p>
+    <p>Are you sure you want to delete {{ key_count }} keys? This action cannot be undone.</p>
+    
+    <p><strong>Keys to be deleted:</strong></br>
+        <ul>
+            {% for key in keys %}
+                <li>Key <strong>{{ key }}</strong> from server <strong>{{ key.server.name }}</strong></li>
+            {% endfor %}
+        </ul>
+    </p>
 
     <form method="post">
         {% csrf_token %}

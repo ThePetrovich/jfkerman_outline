@@ -1,0 +1,631 @@
+:root {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	--color-blue-1: #3e915a;
+	--color-blue-2: #24704a;
+	--color-blue-3: #d0efd9;
+	--color-blue-4: #3ca066;
+	--color-black-1: #222222;
+	--color-gray-1: #48555c;
+	--color-gray-2: #9b9b9b;
+	--color-gray-3: #f5f5f5;
+	--color-gray-4: #a8a8a8;
+	--color-gray-5: #e6e6e6;
+
+	--color-card-background: #f8f8f8;
+	--color-filter-background: #dddddd;
+	--color-filter-background2: white;
+	--color-filter-sel-background: white;
+	--color-white: white;
+	--color-black: black;
+	--navbar-jfk-btn-margin: 44px;
+
+	--bs-font-sans-serif: Arial,sans-serif,"Helvetica Neue",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Liberation Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	--bs-border-radius: 2px !important;
+	--bs-border-radius-sm: 2px !important;
+	--bs-border-radius-lg: 2px !important;
+	--bs-border-radius-xl: 2px !important;
+	--bs-border-radius-2xl: 2px !important;
+	--bs-border-radius-pill: 2px !important;
+}
+
+/* ================================================ *
+ *                    Body styles                   * 
+ * ================================================ */
+
+* {
+	box-sizing: border-box;
+}
+
+.align-center {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 75%;
+}
+
+.container {
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 50px;
+	width: 75%;
+	max-width: 1280px;
+}
+
+.container-flex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0px 16px;
+	-ms-flex-pack: justify;
+	-ms-flex-wrap: wrap;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.spacer {
+	margin: 16px 0px;
+}
+
+.subh1 {
+	font-size: 18px;
+	text-align: center;
+}
+
+hr {
+	border: 1px solid #dcdcdc;
+}
+
+/* ================================================ *
+ *                  Header styles                   * 
+ * ================================================ */
+
+.header {
+	background: black;
+	padding: 80px;
+	padding-top: 160px;
+	padding-bottom: 160px;
+	text-align: center;
+	color: white;
+}
+
+.header h1 {
+	font-size: 40px;
+	margin: 0.33em 0;
+	text-align: none;
+}
+
+.header p {
+	color: var(--color-gray-4);
+}
+
+.header-background-text {
+	z-index: 2;
+	border: 3px solid var(--color-gray-3);
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 20px;
+	width: 80%;
+	max-width: 1280px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
+
+.header-background-image {
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	height: 100%;
+}
+
+.header-sm {
+	background: black;
+	padding: 60px;
+	text-align: center;
+	color: white;
+}
+
+.header-sm h1 {
+	font-size: 32px;
+	margin: 12px;
+	text-align: none;
+}
+
+.header-sm p {
+	color: var(--color-gray-4);
+}
+
+.header-background-image {
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	height: 100%;
+}
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+h3 {
+	font-size: 1.25em;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+}
+
+/* ================================================ *
+ *                   Footer-jfk styles                  * 
+ * ================================================ */
+
+.footer-jfk {
+	margin-top: auto;
+	background: var(--color-black-1);
+	padding: 20px;
+	color: white;
+}
+
+.footer-jfk-content-flex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-right: auto;
+	margin-left: auto;
+	width: 75%;
+	max-width: 1280px;
+	-ms-flex-pack: justify;
+	-ms-flex-wrap: wrap;
+}
+
+.footer-jfk-content {
+	flex: 33%;
+	padding: 20px;
+}
+
+.footer-jfk p {
+	color: var(--color-gray-2);
+}
+
+.footer-jfk a {
+	color: white;
+}
+
+.footer-jfk h2 {
+	text-align: left;
+}
+
+/* ================================================ *
+ *                   Navbar-jfk styles                  * 
+ * ================================================ */
+
+.navbar-jfk {
+	background-color: black;
+	padding-top: 16px;
+	overflow: hidden;
+	font-family: inherit;
+}
+
+.navbar-jfk a {
+	position: relative;
+	bottom: 0px;
+	float: right;
+	margin-top: var(--navbar-jfk-btn-margin);
+	padding: 20px 24px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 1;
+	color: white;
+	font-size: 16px;
+}
+
+.navbar-jfk-logo-btn {
+	float: left;
+	margin: 0;
+	outline: none;
+	border: none;
+	background-color: inherit;
+	padding: 10px 12px;
+	line-height: 1;
+	color: white;
+	font-family: inherit;
+}
+
+.navbar-jfk-logo-img {
+	margin-top: auto;
+	margin-bottom: auto;
+	width: auto;
+	max-width: 100%;
+	max-height: 80px;
+	cursor: pointer;
+}
+
+.navbar-jfk .jfk-dropdown-btn {
+	margin-top: var(--navbar-jfk-btn-margin);
+}
+
+.navbar-jfk a:hover {
+	background-color: var(--color-blue-1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.navbar-jfk .jfk-dropdown:hover .jfk-dropdown-btn {
+		background-color: var(--color-blue-1);
+	}
+
+	.jfk-dropdown-content a:hover {
+		background-color: #ddd;
+	}
+
+	.jfk-dropdown:hover .jfk-dropdown-content {
+		display: block;
+	}
+}
+
+/* ================================================ *
+ *                     Dropdowns                    * 
+ * ================================================ */
+
+.jfk-dropdown {
+	float: right;
+	overflow: hidden;
+}
+
+.jfk-dropdown .jfk-dropdown-btn {
+	outline: none;
+	border: none;
+	background-color: inherit;
+	padding: 20px 24px;
+	text-align: center;
+	line-height: 1;
+	color: white;
+	font-family: inherit;
+	font-size: 16px;
+	touch-action: auto !important;
+}
+
+.jfk-dropdown .jfk-dropdown-btn-active {
+	background-color: var(--color-blue-1);
+}
+
+.jfk-dropdown-content {
+	display: none;
+	position: absolute;
+	z-index: 1;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	background-color: #f9f9f9;
+	min-width: 160px;
+}
+
+.jfk-dropdown-content a {
+	display: block;
+	float: none;
+	margin-top: 0;
+	padding: 12px 16px;
+	text-align: left;
+	text-decoration: none;
+	color: black;
+}
+
+.jfk-dropdown-content-show {
+	display: block;
+}
+
+/* ================================================ *
+ *                  Breadbruh styles                * 
+ * ================================================ */
+
+ul.breadcrumb {
+	padding: 0px 16px;
+	list-style: none;
+}
+
+ul.breadcrumb li {
+	display: inline;
+	font-size: 16px;
+}
+
+ul.breadcrumb li+li:before {
+	padding: 8px;
+	color: var(--color-gray-2);
+	content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+	text-decoration: none;
+	color: var(--color-gray-2);
+}
+
+ul.breadcrumb li a:hover {
+	text-decoration: underline;
+	color: var(--color-gray-3);
+}
+
+/* ================================================ *
+ *                   Button styles                  * 
+ * ================================================ */
+
+.button {
+	border-radius: 2px;
+	background: var(--color-blue-1);
+	padding: 12px 20px;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	-webkit-appearance: none;
+	cursor: pointer;
+}
+
+.button-nobg {
+	border-radius: 2px;
+	padding: 12px 10px;
+	text-align: center;
+	color: var(--color-blue-2);
+	cursor: pointer;
+}
+
+.button-large {
+	padding: 20px 32px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.button:active {
+	background-color: var(--color-blue-2);
+}
+
+a {
+	color: var(--color-blue-2);
+}
+
+
+/* =============================================== *
+ *					  Stuff					  *
+ * =============================================== */
+
+.badge {
+	background-color: var(--color-blue-1);
+	color: white;
+	padding: 4px 8px;
+	text-align: center;
+	border-radius: 2px;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.badge-green {
+	background-color: green;
+}
+
+.badge-red {
+	background-color: red;
+}
+
+.badge-orange {
+	background-color: orange;
+}
+
+.badge-gray {
+	background-color: gray;
+}
+
+.badge-nobg {
+	background-color: inherit;
+	color: gray;
+}
+
+.text-bg-info {
+	color: white !important;
+	background-color: var(--color-blue-1) !important;
+}
+
+.table-listing {
+	border-width: 0px;
+}
+
+.table-listing td {
+	padding-right: 6px;
+	padding-top: 6px;
+	margin: 0;
+}
+
+.alert-info {
+	--bs-alert-color: white;
+	--bs-alert-bg: var(--color-blue-1);
+	--bs-alert-border-color: var(--color-blue-1);
+}
+
+.alert-info-light {
+	--bs-alert-color: var(--color-blue-2);
+	--bs-alert-bg: var(--color-blue-3);
+	--bs-alert-border-color: var(--color-blue-3);
+}
+
+.alert-danger {
+	--bs-alert-color: white;
+	--bs-alert-bg: RGBA(220,53,69,var(--bs-bg-opacity,1));
+	--bs-alert-border-color: RGBA(220,53,69,var(--bs-bg-opacity,1));
+}
+
+.alert-warning {
+	--bs-alert-color: white;
+	--bs-alert-bg: orange;
+	--bs-alert-border-color: orange;
+}
+
+.alert-success {
+	--bs-alert-color: white;
+	--bs-alert-bg: green;
+	--bs-alert-border-color: green;
+}
+
+/* ================================================ *
+ *                  Responsiveness                  * 
+ * ================================================ */
+/* Some dark magic I found on w3schools, idk how this shit works */
+@media screen and (max-width: 1500px) {
+	.contact-map-flex {
+		display: none;
+	}
+
+	.contact-content {
+		flex: 100%;
+	}
+
+	.contact-content-flex {
+		flex-wrap: wrap;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	:root {
+		--navbar-jfk-btn-margin: 28px;
+	}
+
+	.navbar-jfk-logo-img {
+		max-height: 64px;
+	}
+
+	.footer-jfk-content-flex {
+		flex-direction: column;
+	}
+}
+
+/* I have no idea what am i doing */
+@media screen and (max-width: 980px) {
+	.navbar-jfk a {
+		margin: 0;
+		width: 100%;
+	}
+
+	.navbar-jfk-logo-img {
+		max-height: 64px;
+	}
+
+	.navbar-jfk-logo-btn {
+		display: inline-block;
+		float: none;
+		margin-right: auto;
+		margin-left: auto;
+		width: 100%;
+	}
+
+	.navbar-jfk .jfk-dropdown-btn {
+		margin-top: 0;
+		width: 100%;
+	}
+
+	.jfk-dropdown {
+		float: none;
+	}
+
+	.jfk-dropdown-content {
+		width: 75%;
+	}
+
+	.header {
+		padding: 20px;
+	}
+
+	.header-sm {
+		padding: 20px;
+	}
+
+	.header h1 {
+		font-size: 20px;
+	}
+
+	.header-sm h1 {
+		font-size: 20px;
+	}
+
+	.footer-jfk-content-flex {
+		width: 100%;
+	}
+
+	.col {
+		flex: 1 0 100%;
+	}
+
+	.container {
+		width: 90%;
+	}
+	
+	body {
+		font-size: 14px !important;
+	}
+}
+
+
+/* ================================================ *
+ *                     Clearfix                     * 
+ * ================================================ */
+
+.clearfix {
+	overflow: auto;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+
+/* ================================================ *
+ *                     Overrides                    * 
+ * ================================================ */
+
+main {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.btn-primary {
+	--bs-btn-color: #fff;
+	--bs-btn-bg: var(--color-blue-1);
+	--bs-btn-border-color: var(--color-blue-1);
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: var(--color-blue-4);
+	--bs-btn-hover-border-color: var(--color-blue-4);
+	--bs-btn-focus-shadow-rgb: 49,132,253;
+	--bs-btn-active-color: #fff;
+	--bs-btn-active-bg: var(--color-blue-2);
+	--bs-btn-active-border-color: var(--color-blue-2);
+	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	--bs-btn-disabled-color: #fff;
+	--bs-btn-disabled-bg: var(--color-blue-1);
+	--bs-btn-disabled-border-color: var(--color-blue-1);
+  }
+
+.flex-card-btn {
+	flex: 1 0;
+	white-space: nowrap;
+}
+
+.flex-card-info {
+	flex: 10 0;
+	min-width: 250px;
+}
+
+.form-control {
+	border-radius: 2px;
+	transition: none;
+}	
+
+.form-control:focus {
+	border-color: var(--color-blue-4);
+	box-shadow: none;
+}

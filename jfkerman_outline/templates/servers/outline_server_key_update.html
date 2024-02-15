@@ -1,14 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
+{% load datalimits %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <h1>Editing key {{ key.name }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <div class="btn-group" role="group">
-            <button type="submit" class="btn btn-primary">Update</button>
-            <a class="btn btn-secondary" href="{% url 'server_keys' server_slug %}">Cancel</a>
-        </div>
-    </form>
+    <h1>Editing key <span class="text-muted">{{ key.name }}</span></h1>
+
+    <div class="mb-3">
+        <label for="form_key">Key</label>
+        <input class="form-control" type="text" value="{{ key.key }}" id="form_key" disabled />
+        <div id="id_key_helptext" class="form-text">Key for use in Outline client</div>
+    </div>
+
+    <div class="card card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <p>
+                <strong>Server limit:</strong> {{ data_limit|datalimitmb }}
+            </p>
+            <div class="d-flex justify-content-between">
+                <div class="btn-group" role="group">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a class="btn btn-secondary" href="{{ previous }}">Cancel</a>
+                </div>
+                <a class="btn btn-danger" href="{% url 'server_key_delete' key.server.slug key.pk %}">Delete</a>
+            </div>
+        </form>
+    </div>
 {% endblock content %}

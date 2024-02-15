@@ -281,3 +281,12 @@ SOCIALACCOUNT_FORMS = {"signup": "jfkerman_outline.users.forms.UserSocialSignupF
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.SUCCESS: 'alert alert-success',
+    messages.ERROR: 'alert alert-danger',
+    messages.INFO: 'alert alert-info',
+    messages.WARNING: 'alert alert-warning',
+}

@@ -1,5 +1,6 @@
 from django.db import models
 from jfkerman_outline.users.models import User
+from django.utils.translation import gettext as _
 
 
 class OutlineServer(models.Model):
@@ -28,11 +29,11 @@ class OutlineServerKey(models.Model):
     server = models.ForeignKey(OutlineServer, on_delete=models.CASCADE, related_name='keys')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='keys')
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, verbose_name=_('Key name'), help_text=_('Up to 100 characters long'))
 
     key_id = models.CharField(max_length=255, default='', blank=True, db_index=True)
     key = models.CharField(max_length=255, default='', blank=True)
-    data_limit = models.BigIntegerField(default=0)
+    data_limit = models.BigIntegerField(default=0, verbose_name=_('Data limit (MB)'), help_text=_('Use 0 for unlimited data'))
     data_used = models.BigIntegerField(default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
