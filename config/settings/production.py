@@ -6,7 +6,7 @@ from .base import env
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["outline.jfkerman.me"])
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["outline.jfkerman.me", '127.0.0.1'])
 
 # DATABASES
 # ------------------------------------------------------------------------------
@@ -14,16 +14,9 @@ DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # no
 
 # CACHES
 # ------------------------------------------------------------------------------
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": env("REDIS_URL"),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            # Mimicing memcache behavior.
-            # https://github.com/jazzband/django-redis#memcached-exceptions-behavior
-            "IGNORE_EXCEPTIONS": True,
-        },
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
     }
 }
 
@@ -137,3 +130,11 @@ LOGGING = {
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+STATIC_ROOT = "/var/www/jfkerman-outline/static"
