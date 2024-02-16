@@ -81,6 +81,7 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "allauth.socialaccount.providers.openid_connect",
     "django_apscheduler",
 ]
 
@@ -293,3 +294,7 @@ MESSAGE_TAGS = {
     messages.INFO: 'alert alert-info',
     messages.WARNING: 'alert alert-warning',
 }
+
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
+SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
+SOCIALACCOUNT_LOGIN_ON_GET = True

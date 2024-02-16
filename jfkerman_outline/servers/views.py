@@ -21,8 +21,9 @@ class OutlineServerListView(ListView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super(OutlineServerListView, self).get_context_data(**kwargs)
-        for server in context['servers']:
-            server.key_count = len(server.keys.filter(user=self.request.user))
+        if self.request.user.is_authenticated:
+            for server in context['servers']:
+                server.key_count = len(server.keys.filter(user=self.request.user))
         return context
 
 

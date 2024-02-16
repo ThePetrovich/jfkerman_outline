@@ -14,7 +14,10 @@ if typing.TYPE_CHECKING:
 
 class AccountAdapter(DefaultAccountAdapter):
     def is_open_for_signup(self, request: HttpRequest) -> bool:
-        return getattr(settings, "ACCOUNT_ALLOW_REGISTRATION", True)
+        return False
+    
+    def get_login_redirect_url(self, request):
+      return '/'
 
 
 class SocialAccountAdapter(DefaultSocialAccountAdapter):
@@ -36,3 +39,6 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
                 if last_name := data.get("last_name"):
                     user.name += f" {last_name}"
         return user
+    
+    def get_login_redirect_url(self, request):
+      return '/'

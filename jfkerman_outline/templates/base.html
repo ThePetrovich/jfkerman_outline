@@ -1,5 +1,8 @@
 
-{% load static i18n %}<!DOCTYPE html>
+{% load static i18n %}
+{% load socialaccount %}
+{% get_providers as socialaccount_providers %}
+<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
@@ -98,7 +101,7 @@
             </div>
           </div>
         {% else %}
-          <a href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
+          <a href="{% provider_login_url "jfkerman-sso" %}">{% translate "Sign In" %}</a>
         {% endif %}
         <a href="{% url 'server_list' %}">{% translate "Server List" %}</a>
         <a href="https://jfkerman.me">jfkerman.me</a>
