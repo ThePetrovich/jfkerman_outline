@@ -8,7 +8,7 @@
             {% for key in keys %}
                 <div class="card d-flex flex-row flex-wrap">
                     <div class="card-body flex-card-info">
-                        <div class="d-flex flex-row justify-content-between">
+                        <div class="d-flex flex-row justify-content-between flex-wrap">
                             <h4 class="card-title">{{ key.name }}</h4>
                             {% if key.data_limit != 0 %}
                                 <h5 class="card-title text-muted">{{ key.data_used|datalimitbytes }}/{{ key.data_limit|datalimitmb }}</h5>
