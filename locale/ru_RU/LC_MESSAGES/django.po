@@ -63,7 +63,7 @@ msgstr "%(size)d МБ"
 #: .\jfkerman_outline\servers\templatetags\datalimits.py:76
 #, python-format
 msgid "%s MB"
-msgstr %s МБ""
+msgstr "%s МБ"
 
 #: .\jfkerman_outline\servers\templatetags\datalimits.py:78
 #, python-format
