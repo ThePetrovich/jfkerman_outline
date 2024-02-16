@@ -17,6 +17,7 @@ DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # no
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -138,3 +139,4 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = "/var/www/jfkerman-outline/static"
+

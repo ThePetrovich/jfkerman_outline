@@ -10,21 +10,22 @@ from django_apscheduler.jobstores import DjangoJobStore
 from django_apscheduler.models import DjangoJobExecution
 from django_apscheduler import util
 
-from jfkerman_outline.servers.models import OutlineServerKey
+from jfkerman_outline.servers.models import OutlineServerKey, OutlineServer
 from outline_vpn.outline_vpn import OutlineVPN
 
 logger = logging.getLogger(__name__)
 
 
+@util.close_old_connections
 def update_usage_stats():
     """
     This job updates the usage statistics for each key.
     """
     try:
-        keys = OutlineServerKey.objects.all()
-        servers = set([key.server for key in keys])
+        servers = OutlineServer.objects.all()
 
         for server in servers:
+            keys = OutlineServerKey.objects.all().filter(server=server)
             client = OutlineVPN(server.api_url, server.api_cert)
             json = client.get_transferred_data()
             stats = json["bytesTransferredByUserId"]

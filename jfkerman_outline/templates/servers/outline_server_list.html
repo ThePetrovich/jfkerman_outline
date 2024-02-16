@@ -8,7 +8,7 @@
         {% for server in servers %}
             <div class="card d-flex flex-row flex-wrap">
                 <div class="card-header border-0 d-inline-flex align-items-center">
-                    <img class="card-img-left" src="{% static '/images/country/france.png' %}" />
+                    <img class="card-img-left" src="{% static '/images/country/'|add:server.country|add:'.png' %}" />
                 </div>
                 <div class="card-body flex-card-info">
                     <h4 class="card-title">{{ server.name }}</h4>
@@ -28,3 +28,4 @@
         {% endfor %}
     </div>
 {% endblock content %}
+

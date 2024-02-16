@@ -8,6 +8,7 @@ from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy
 
 from outline_vpn.outline_vpn import OutlineVPN
 
@@ -49,7 +50,7 @@ class OutlineServerKeyCreateView(LoginRequiredMixin, SuccessMessageMixin, Create
     fields = ['name', 'data_limit']
     template_name = 'servers/outline_server_key_create.html'
 
-    success_message = _("Key created successfully")
+    success_message = gettext_lazy("Key created successfully")
 
     def get_context_data(self, **kwargs):
         context = super(OutlineServerKeyCreateView, self).get_context_data(**kwargs)
@@ -105,7 +106,7 @@ class OutlineServerKeyUpdateView(LoginRequiredMixin, SuccessMessageMixin, Update
 
     context_object_name = 'key'
 
-    success_message = _("Key updated successfully")
+    success_message = gettext_lazy("Key updated successfully")
 
     def get_context_data(self, **kwargs):
         context = super(OutlineServerKeyUpdateView, self).get_context_data(**kwargs)
@@ -164,7 +165,7 @@ class OutlineServerKeyDeleteView(LoginRequiredMixin, SuccessMessageMixin, Delete
     template_name = 'servers/outline_server_key_confirm_delete.html'
     context_object_name = 'key'
 
-    success_message = _("Key deleted successfully")
+    success_message = gettext_lazy("Key deleted successfully")
 
     def get_context_data(self, **kwargs):
         context = super(OutlineServerKeyDeleteView, self).get_context_data(**kwargs)
