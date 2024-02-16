@@ -10,7 +10,6 @@
             <h1>{% translate "Your keys:" %} {{ server_name }}</h1>
             <h2>{{ key_count }} / <span class="text-muted">{{ key_limit }} {% translate "key(s)" %}</span></h2>
     </div>
-    </div>
     <div class="d-flex flex-column gap-2 mb-3 mt-3">
         {% if keys %}
             {% for key in keys %}
