@@ -88,6 +88,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "jfkerman_outline.users",
     "jfkerman_outline.servers",
+    "jfkerman_outline.servers_marzban",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

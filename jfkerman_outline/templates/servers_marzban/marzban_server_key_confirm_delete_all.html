@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block content %}
+    <h1>{% translate "Delete All Keys" %}</h1>
+
+    <div class="card card-body mt-3">
+    <p>{% translate "Are you sure you want to delete" %} {{ key_count }} {% translate "keys? This action cannot be undone." %}</p>
+    
+    <p><strong>{% translate "Keys to be deleted:" %}</strong></br>
+        <ul>
+            {% for key in keys %}
+                <li>{% translate "Key" %} <strong>{{ key }}</strong> {% translate "from server" %} <strong>{{ key.server.name }}</strong></li>
+            {% endfor %}
+        </ul>
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="btn-group" role="group">
+            <button type="submit" class="btn btn-danger">{% translate "Yes, delete" %}</button>
+            <a class="btn btn-secondary" href="{{ previous }}">{% translate "Cancel" %}</a>
+        </div>
+    </form>
+    </div>
+
+{% endblock content %}

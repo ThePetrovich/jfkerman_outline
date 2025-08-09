@@ -274,3 +274,5 @@ dump.rdb
 jfkerman_outline/media/
 
 .pytest_cache/
+
+*.sqlite3

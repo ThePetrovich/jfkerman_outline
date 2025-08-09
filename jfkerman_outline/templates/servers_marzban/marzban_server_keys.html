@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load datalimits %}
+{% block content %}
+    <div class="d-flex flex-row justify-content-between align-items-center flex-wrap gap-3">
+            <button class="btn btn-secondary" onclick="window.location.href='{% url 'server_list' %}'">
+                <i class="icons-arrow icons-arrow-left"></i>
+                {% translate "Back to Servers" %}
+            </button>
+            <h1>{% translate "Your keys:" %} {{ server_name }}</h1>
+            <h2>{{ key_count }} / <span class="text-muted">{{ key_limit }} {% translate "key(s)" %}</span></h2>
+    </div>
+    <div class="d-flex flex-column gap-2 mb-3 mt-3">
+        {% if keys %}
+            {% for key in keys %}
+                <div class="card d-flex flex-row flex-wrap">
+                    <div class="card-body flex-card-info">
+                        <div class="d-flex flex-row justify-content-between flex-wrap">
+                            <h4 class="card-title">{{ key.name }}</h4>
+                            {% if key.data_limit != 0 %}
+                                <h5 class="card-title text-muted">{{ key.data_used|datalimitbytes }}/{{ key.data_limit|datalimitmb }}</h5>
+                            {% else %}
+                                <h5 class="card-title text-muted">{% translate "No limit" %}</h5>
+                            {% endif %}
+                        </div>
+                        <p class="card-text">
+                            <strong>{% translate "Key:" %}</strong> <a style="word-break: break-all;" href="{{ key.key }}" onclick="copyURI(event, '{% translate 'Copied!' %}')">{% translate "Copy to clipboard" %}</a></br>
+                            <strong>{% translate "Created:" %}</strong> {{ key.created_at }}
+                        </p>
+                    </div>
+                    <div class="card-block mr-auto p-2 flex-card-btn">
+                        <div class="btn-group-vertical h-100 w-100 d-flex">
+                            <a href="{% url 'server_key_update' key.server.slug key.pk %}" class="btn btn-secondary h-100 d-inline-flex align-items-center text-center">{% translate "Edit" %}</a>
+                            <a href="{% url 'server_key_delete' key.server.slug key.pk %}" class="btn btn-danger h-100 d-inline-flex align-items-center text-center">{% translate "Delete" %}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-secondary" role="alert">
+                {% translate "No keys found" %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="d-flex justify-content-between">
+        <a href="{% url 'server_key_create' server_slug %}" class="btn btn-primary">{% translate "Create new key" %}</a>
+
+        <a class="btn btn-danger" href="{% url 'delete_server_keys' server_slug %}">{% translate "Delete All Keys" %}</a>
+    </div>
+    </br>
+{% endblock content %}
