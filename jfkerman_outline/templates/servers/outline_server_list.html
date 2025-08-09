@@ -3,7 +3,10 @@
 {% load socialaccount %}
 {% get_providers as socialaccount_providers %}
 {% block content %}
-    <h1>{% translate "Server list" %}</h1>
+
+    <h1>{% translate "Outline Server list" %}</h1>
+    <a href="/" class="button">Outline Servers</a>
+    <a href ="/servers_vless" class="button">Vless Servers</a>
     <div class="d-flex gap-2 mb-3 mt-3 flex-column">
         {% for server in servers %}
             <div class="card d-flex flex-row flex-wrap">
@@ -19,7 +22,7 @@
                 </div>
                 <div class="card-block mr-auto p-2 d-flex flex-card-btn" >
                     {% if request.user.is_authenticated %}
-                        <a href="{% url 'server_keys' server.slug %}" class="btn btn-primary w-100 h-100 d-inline-flex align-items-center justify-content-center">{% translate "My keys" %}</br>({{ server.key_count }} / {{ server.keys_per_user }})</a>
+                        <a href="{% url 'outline_servers:server_keys' server.slug %}" class="btn btn-primary w-100 h-100 d-inline-flex align-items-center justify-content-center">{% translate "My keys" %}</br>({{ server.key_count }} / {{ server.keys_per_user }})</a>
                     {% else %}
                         <a href="{% provider_login_url "jfkerman-sso" %}" class="btn btn-primary w-100 h-100 d-inline-flex align-items-center justify-content-center">{% translate "Sign In" %}</a>
                     {% endif %}

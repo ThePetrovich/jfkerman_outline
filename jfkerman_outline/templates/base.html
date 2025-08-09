@@ -96,14 +96,14 @@
             
             <div class="jfk-dropdown-content" id="login-dropdown">
               <a href="https://auth.jfkerman.me/if/user/#/settings">{% translate "Profile at SSO" %}</a>
-              <a href="{% url 'my_keys' %}">{% translate "My keys" %}</a>
+              <a href="{% url 'outline_servers:my_keys' %}">{% translate "My keys" %}</a>
               <a href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
             </div>
           </div>
         {% else %}
           <a href="{% provider_login_url "jfkerman-sso" %}">{% translate "Sign In" %}</a>
         {% endif %}
-        <a href="{% url 'server_list' %}">{% translate "Server List" %}</a>
+        <a href="{% url 'outline_servers:server_list' %}">{% translate "Server List" %}</a>
         <a href="https://jfkerman.me">jfkerman.me</a>
     </div>
   </div>
