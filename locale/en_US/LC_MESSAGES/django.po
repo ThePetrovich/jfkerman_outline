@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 05:11+0800\n"
+"POT-Creation-Date: 2025-08-10 21:45+0800\n"
 "Language: en-US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,18 +18,22 @@ msgid "Servers"
 msgstr ""
 
 #: .\jfkerman_outline\servers\models.py:32
+#: .\jfkerman_outline\servers_marzban\models.py:40
 msgid "Key name"
 msgstr ""
 
 #: .\jfkerman_outline\servers\models.py:32
+#: .\jfkerman_outline\servers_marzban\models.py:40
 msgid "Up to 100 characters long"
 msgstr ""
 
 #: .\jfkerman_outline\servers\models.py:36
+#: .\jfkerman_outline\servers_marzban\models.py:46
 msgid "Data limit (MB)"
 msgstr ""
 
 #: .\jfkerman_outline\servers\models.py:36
+#: .\jfkerman_outline\servers_marzban\models.py:46
 msgid "Use 0 for unlimited data"
 msgstr ""
 
@@ -75,44 +79,63 @@ msgstr ""
 msgid "%s PB"
 msgstr ""
 
-#: .\jfkerman_outline\servers\views.py:51
+#: .\jfkerman_outline\servers\views.py:53
+#: .\jfkerman_outline\servers_marzban\views.py:135
 msgid "Key created successfully"
 msgstr ""
 
-#: .\jfkerman_outline\servers\views.py:70
+#: .\jfkerman_outline\servers\views.py:72
+#: .\jfkerman_outline\servers_marzban\views.py:154
 msgid "Maximum keys per user reached, please delete other keys first"
 msgstr ""
 
-#: .\jfkerman_outline\servers\views.py:84
-#: .\jfkerman_outline\servers\views.py:89
-#: .\jfkerman_outline\servers\views.py:142
-#: .\jfkerman_outline\servers\views.py:149
+#: .\jfkerman_outline\servers\views.py:86
+#: .\jfkerman_outline\servers\views.py:91
+#: .\jfkerman_outline\servers\views.py:144
+#: .\jfkerman_outline\servers\views.py:151
+#: .\jfkerman_outline\servers_marzban\views.py:166
+#: .\jfkerman_outline\servers_marzban\views.py:170
+#: .\jfkerman_outline\servers_marzban\views.py:236
+#: .\jfkerman_outline\servers_marzban\views.py:241
 msgid "Data limit exceeds server limit, setting to server limit"
 msgstr ""
 
-#: .\jfkerman_outline\servers\views.py:94
+#: .\jfkerman_outline\servers\views.py:96
+#: .\jfkerman_outline\servers_marzban\views.py:189
 msgid "Failed to create key: external API error"
 msgstr ""
 
-#: .\jfkerman_outline\servers\views.py:107
+#: .\jfkerman_outline\servers\views.py:109
+#: .\jfkerman_outline\servers_marzban\views.py:202
 msgid "Key updated successfully"
 msgstr ""
 
-#: .\jfkerman_outline\servers\views.py:155
+#: .\jfkerman_outline\servers\views.py:157
+#: .\jfkerman_outline\servers_marzban\views.py:261
 msgid "Failed to update key: external API error"
 msgstr ""
 
-#: .\jfkerman_outline\servers\views.py:166
+#: .\jfkerman_outline\servers\views.py:168
+#: .\jfkerman_outline\servers_marzban\views.py:272
 msgid "Key deleted successfully"
 msgstr ""
 
 #: .\jfkerman_outline\servers\views.py:203
-#: .\jfkerman_outline\servers\views.py:237
+#: .\jfkerman_outline\servers\views.py:235
+#: .\jfkerman_outline\servers_marzban\views.py:302
+#: .\jfkerman_outline\servers_marzban\views.py:305
+#: .\jfkerman_outline\servers_marzban\views.py:309
+#: .\jfkerman_outline\servers_marzban\views.py:343
 msgid "Failed to delete key: external API error"
 msgstr ""
 
-#: .\jfkerman_outline\servers\views.py:240
+#: .\jfkerman_outline\servers\views.py:238
+#: .\jfkerman_outline\servers_marzban\views.py:346
 msgid "All keys deleted successfully"
+msgstr ""
+
+#: .\jfkerman_outline\servers_marzban\apps.py:8
+msgid "Servers Marzban"
 msgstr ""
 
 #: .\jfkerman_outline\templates\account\account_inactive.html:6
@@ -208,7 +231,9 @@ msgstr ""
 #: .\jfkerman_outline\templates\account\login.html:8
 #: .\jfkerman_outline\templates\account\login.html:11
 #: .\jfkerman_outline\templates\account\login.html:50
-#: .\jfkerman_outline\templates\base.html:101
+#: .\jfkerman_outline\templates\base.html:104
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:32
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:33
 msgid "Sign In"
 msgstr ""
 
@@ -239,14 +264,26 @@ msgid "Forgot Password?"
 msgstr ""
 
 #: .\jfkerman_outline\templates\account\logout.html:6
-#: .\jfkerman_outline\templates\account\logout.html:9
-#: .\jfkerman_outline\templates\account\logout.html:18
-#: .\jfkerman_outline\templates\base.html:97
+#: .\jfkerman_outline\templates\account\logout.html:10
+#: .\jfkerman_outline\templates\account\logout.html:21
+#: .\jfkerman_outline\templates\base.html:100
 msgid "Sign Out"
 msgstr ""
 
-#: .\jfkerman_outline\templates\account\logout.html:10
+#: .\jfkerman_outline\templates\account\logout.html:12
 msgid "Are you sure you want to sign out?"
+msgstr ""
+
+#: .\jfkerman_outline\templates\account\logout.html:22
+#: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:13
+#: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:21
+#: .\jfkerman_outline\templates\servers\outline_server_key_create.html:16
+#: .\jfkerman_outline\templates\servers\outline_server_key_update.html:24
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:13
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:21
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_create.html:16
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:24
+msgid "Cancel"
 msgstr ""
 
 #: .\jfkerman_outline\templates\account\password_change.html:7
@@ -372,195 +409,262 @@ msgid ""
 "mail address</a>."
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:90
+#: .\jfkerman_outline\templates\base.html:93
 msgid "Logged in as:"
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:95
+#: .\jfkerman_outline\templates\base.html:98
 msgid "Profile at SSO"
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:96
-#: .\jfkerman_outline\templates\servers\outline_server_list.html:19
+#: .\jfkerman_outline\templates\base.html:99
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:30
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:31
 msgid "My keys"
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:103
+#: .\jfkerman_outline\templates\base.html:106
 msgid "Server List"
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:143
+#: .\jfkerman_outline\templates\base.html:146
 msgid "Usage policy"
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:146
+#: .\jfkerman_outline\templates\base.html:149
 msgid "Contacts"
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:151
+#: .\jfkerman_outline\templates\base.html:154
 msgid "For developers:"
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:152
+#: .\jfkerman_outline\templates\base.html:155
 msgid "Server status"
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:154
+#: .\jfkerman_outline\templates\base.html:157
 msgid "Social:"
 msgstr ""
 
-#: .\jfkerman_outline\templates\base.html:155
+#: .\jfkerman_outline\templates\base.html:158
 msgid "Nothing to see here"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:4
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:4
 msgid "Delete key"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:7
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:7
 msgid "Are you sure you want to delete the key"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:7
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:7
 msgid "This action cannot be undone."
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:12
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:20
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:12
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:20
 msgid "Yes, delete"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:13
-#: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:21
-#: .\jfkerman_outline\templates\servers\outline_server_key_create.html:16
-#: .\jfkerman_outline\templates\servers\outline_server_key_update.html:24
-msgid "Cancel"
-msgstr ""
-
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:4
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:49
-#: .\jfkerman_outline\templates\servers\user_keys.html:64
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:48
+#: .\jfkerman_outline\templates\servers\user_keys.html:72
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:4
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:48
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:77
 msgid "Delete All Keys"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:7
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:7
 msgid "Are you sure you want to delete"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:7
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:7
 msgid "keys? This action cannot be undone."
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:9
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:9
 msgid "Keys to be deleted:"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:12
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:9
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:12
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:9
 msgid "Key"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:12
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:12
 msgid "from server"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_create.html:6
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:47
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:46
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_create.html:6
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:46
 msgid "Create new key"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_create.html:12
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:19
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_create.html:12
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:19
 msgid "Server limit:"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_create.html:15
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_create.html:15
 msgid "Create"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:6
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:6
 msgid "Editing key"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:11
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:11
 msgid "Key for use in Outline client"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:23
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:23
 msgid "Update"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:26
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:35
-#: .\jfkerman_outline\templates\servers\user_keys.html:28
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:34
+#: .\jfkerman_outline\templates\servers\user_keys.html:36
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:26
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:34
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:45
 msgid "Delete"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_keys.html:8
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:8
 msgid "Back to Servers"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_keys.html:10
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:10
 msgid "Your keys:"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_keys.html:11
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:11
 msgid "key(s)"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:24
-#: .\jfkerman_outline\templates\servers\user_keys.html:16
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:23
+#: .\jfkerman_outline\templates\servers\user_keys.html:24
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:23
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:27
 msgid "No limit"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:28
-#: .\jfkerman_outline\templates\servers\user_keys.html:21
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:27
+#: .\jfkerman_outline\templates\servers\user_keys.html:29
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:27
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:33
 msgid "Key:"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:28
-#: .\jfkerman_outline\templates\servers\user_keys.html:21
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:27
+#: .\jfkerman_outline\templates\servers\user_keys.html:29
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:27
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:35
 msgid "Copied!"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:28
-#: .\jfkerman_outline\templates\servers\user_keys.html:21
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:27
+#: .\jfkerman_outline\templates\servers\user_keys.html:29
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:27
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:35
 msgid "Copy to clipboard"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:29
-#: .\jfkerman_outline\templates\servers\user_keys.html:22
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:28
+#: .\jfkerman_outline\templates\servers\user_keys.html:30
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:28
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:37
 msgid "Created:"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:34
-#: .\jfkerman_outline\templates\servers\user_keys.html:27
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:33
+#: .\jfkerman_outline\templates\servers\user_keys.html:35
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:33
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:43
 msgid "Edit"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:42
-#: .\jfkerman_outline\templates\servers\user_keys.html:35
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:41
+#: .\jfkerman_outline\templates\servers\user_keys.html:43
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:41
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:51
 msgid "No keys found"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_list.html:4
-msgid "Server list"
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:8
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:8
+msgid "Outline Servers"
+msgstr ""
+
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:11
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:11
+msgid "VLESS Servers"
 msgstr ""
 
 #: .\jfkerman_outline\templates\servers\outline_server_list.html:14
+msgid "Outline Server list"
+msgstr ""
+
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:24
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:25
 msgid "Server URL:"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\outline_server_list.html:15
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:25
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:26
 msgid "Port:"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\user_keys.html:5
+#: .\jfkerman_outline\templates\servers\user_keys.html:7
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:9
+msgid "Outline Keys"
+msgstr ""
+
+#: .\jfkerman_outline\templates\servers\user_keys.html:10
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:13
+msgid "VLESS Keys"
+msgstr ""
+
+#: .\jfkerman_outline\templates\servers\user_keys.html:13
 msgid "Your keys"
 msgstr ""
 
-#: .\jfkerman_outline\templates\servers\user_keys.html:20
+#: .\jfkerman_outline\templates\servers\user_keys.html:28
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:31
 msgid "Server:"
+msgstr ""
+
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:15
+msgid "VLESS Server list"
+msgstr ""
+
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:16
+msgid "Your VLESS keys"
 msgstr ""
 
 #: .\jfkerman_outline\users\admin.py:23

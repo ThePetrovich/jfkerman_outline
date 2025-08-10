@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 05:10+0800\n"
+"POT-Creation-Date: 2025-08-10 21:45+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,18 +23,22 @@ msgid "Servers"
 msgstr "Серверы"
 
 #: .\jfkerman_outline\servers\models.py:32
+#: .\jfkerman_outline\servers_marzban\models.py:40
 msgid "Key name"
 msgstr "Название ключа"
 
 #: .\jfkerman_outline\servers\models.py:32
+#: .\jfkerman_outline\servers_marzban\models.py:40
 msgid "Up to 100 characters long"
 msgstr "До 100 символов"
 
 #: .\jfkerman_outline\servers\models.py:36
+#: .\jfkerman_outline\servers_marzban\models.py:46
 msgid "Data limit (MB)"
 msgstr "Лимит трафика (МБ)"
 
 #: .\jfkerman_outline\servers\models.py:36
+#: .\jfkerman_outline\servers_marzban\models.py:46
 msgid "Use 0 for unlimited data"
 msgstr "Используйте 0 для безлимитного трафика"
 
@@ -80,45 +84,67 @@ msgstr "%s ТБ"
 msgid "%s PB"
 msgstr "%s ПБ"
 
-#: .\jfkerman_outline\servers\views.py:51
+#: .\jfkerman_outline\servers\views.py:53
+#: .\jfkerman_outline\servers_marzban\views.py:135
 msgid "Key created successfully"
 msgstr "Ключ успешно создан"
 
-#: .\jfkerman_outline\servers\views.py:70
+#: .\jfkerman_outline\servers\views.py:72
+#: .\jfkerman_outline\servers_marzban\views.py:154
 msgid "Maximum keys per user reached, please delete other keys first"
-msgstr "Достигнут максимум ключей на пользователя, сначала удалите другие ключи"
+msgstr ""
+"Достигнут максимум ключей на пользователя, сначала удалите другие ключи"
 
-#: .\jfkerman_outline\servers\views.py:84
-#: .\jfkerman_outline\servers\views.py:89
-#: .\jfkerman_outline\servers\views.py:142
-#: .\jfkerman_outline\servers\views.py:149
+#: .\jfkerman_outline\servers\views.py:86
+#: .\jfkerman_outline\servers\views.py:91
+#: .\jfkerman_outline\servers\views.py:144
+#: .\jfkerman_outline\servers\views.py:151
+#: .\jfkerman_outline\servers_marzban\views.py:166
+#: .\jfkerman_outline\servers_marzban\views.py:170
+#: .\jfkerman_outline\servers_marzban\views.py:236
+#: .\jfkerman_outline\servers_marzban\views.py:241
 msgid "Data limit exceeds server limit, setting to server limit"
-msgstr "Указан лимит трафика больше серверного, установлено максимальное значение"
+msgstr ""
+"Указан лимит трафика больше серверного, установлено максимальное значение"
 
-#: .\jfkerman_outline\servers\views.py:94
+#: .\jfkerman_outline\servers\views.py:96
+#: .\jfkerman_outline\servers_marzban\views.py:189
 msgid "Failed to create key: external API error"
 msgstr "Не удалось создать ключ: ошибка внешнего API"
 
-#: .\jfkerman_outline\servers\views.py:107
+#: .\jfkerman_outline\servers\views.py:109
+#: .\jfkerman_outline\servers_marzban\views.py:202
 msgid "Key updated successfully"
 msgstr "Ключ успешно обновлен"
 
-#: .\jfkerman_outline\servers\views.py:155
+#: .\jfkerman_outline\servers\views.py:157
+#: .\jfkerman_outline\servers_marzban\views.py:261
 msgid "Failed to update key: external API error"
 msgstr "Не удалось обновить ключ: ошибка внешнего API"
 
-#: .\jfkerman_outline\servers\views.py:166
+#: .\jfkerman_outline\servers\views.py:168
+#: .\jfkerman_outline\servers_marzban\views.py:272
 msgid "Key deleted successfully"
 msgstr "Ключ успешно удален"
 
 #: .\jfkerman_outline\servers\views.py:203
-#: .\jfkerman_outline\servers\views.py:237
+#: .\jfkerman_outline\servers\views.py:235
+#: .\jfkerman_outline\servers_marzban\views.py:302
+#: .\jfkerman_outline\servers_marzban\views.py:305
+#: .\jfkerman_outline\servers_marzban\views.py:309
+#: .\jfkerman_outline\servers_marzban\views.py:343
 msgid "Failed to delete key: external API error"
 msgstr "Не удалось удалить ключ: ошибка внешнего API"
 
-#: .\jfkerman_outline\servers\views.py:240
+#: .\jfkerman_outline\servers\views.py:238
+#: .\jfkerman_outline\servers_marzban\views.py:346
 msgid "All keys deleted successfully"
 msgstr "Все ключи успешно удалены"
+
+#: .\jfkerman_outline\servers_marzban\apps.py:8
+#| msgid "Servers"
+msgid "Servers VLESS"
+msgstr "Серверы VLESS"
 
 #: .\jfkerman_outline\templates\account\account_inactive.html:6
 #: .\jfkerman_outline\templates\account\account_inactive.html:9
@@ -200,8 +226,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"Пожалуйста, подтвердите, что <a href=\"mailto:%(email)s\">%(email)s</a> является "
-"адресом электронной почты для пользователя %(user_display)s."
+"Пожалуйста, подтвердите, что <a href=\"mailto:%(email)s\">%(email)s</a> "
+"является адресом электронной почты для пользователя %(user_display)s."
 
 #: .\jfkerman_outline\templates\account\email_confirm.html:19
 msgid "Confirm"
@@ -214,12 +240,15 @@ msgid ""
 "href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 "Эта ссылка для подтверждения электронной почты истекла или недействительна."
-"Пожалуйста, <a href=\"%(email_url)s\">запросите новую ссылку для подтверждения</a>."
+"Пожалуйста, <a href=\"%(email_url)s\">запросите новую ссылку для "
+"подтверждения</a>."
 
 #: .\jfkerman_outline\templates\account\login.html:8
 #: .\jfkerman_outline\templates\account\login.html:11
 #: .\jfkerman_outline\templates\account\login.html:50
-#: .\jfkerman_outline\templates\base.html:101
+#: .\jfkerman_outline\templates\base.html:104
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:32
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:33
 msgid "Sign In"
 msgstr "Войти"
 
@@ -254,15 +283,27 @@ msgid "Forgot Password?"
 msgstr "Забыли пароль?"
 
 #: .\jfkerman_outline\templates\account\logout.html:6
-#: .\jfkerman_outline\templates\account\logout.html:9
-#: .\jfkerman_outline\templates\account\logout.html:18
-#: .\jfkerman_outline\templates\base.html:97
+#: .\jfkerman_outline\templates\account\logout.html:10
+#: .\jfkerman_outline\templates\account\logout.html:21
+#: .\jfkerman_outline\templates\base.html:100
 msgid "Sign Out"
 msgstr "Выйти"
 
-#: .\jfkerman_outline\templates\account\logout.html:10
+#: .\jfkerman_outline\templates\account\logout.html:12
 msgid "Are you sure you want to sign out?"
 msgstr "Вы действительно хотите выйти?"
+
+#: .\jfkerman_outline\templates\account\logout.html:22
+#: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:13
+#: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:21
+#: .\jfkerman_outline\templates\servers\outline_server_key_create.html:16
+#: .\jfkerman_outline\templates\servers\outline_server_key_update.html:24
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:13
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:21
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_create.html:16
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:24
+msgid "Cancel"
+msgstr "Отмена"
 
 #: .\jfkerman_outline\templates\account\password_change.html:7
 #: .\jfkerman_outline\templates\account\password_change.html:10
@@ -286,8 +327,8 @@ msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you "
 "an e-mail allowing you to reset it."
 msgstr ""
-"Забыли пароль? Введите ваш адресс электронной почты, и на него будет отправлено "
-"письмо с ссылкой для сброса пароля."
+"Забыли пароль? Введите ваш адресс электронной почты, и на него будет "
+"отправлено письмо с ссылкой для сброса пароля."
 
 #: .\jfkerman_outline\templates\account\password_reset.html:25
 msgid "Reset My Password"
@@ -302,8 +343,8 @@ msgid ""
 "We have sent you an e-mail. Please contact us if you do not receive it "
 "within a few minutes."
 msgstr ""
-"Письмо отправлено. Пожалуйста, свяжитесь с нами, если вы не получили "
-"письмо в течении нескольких минут."
+"Письмо отправлено. Пожалуйста, свяжитесь с нами, если вы не получили письмо "
+"в течении нескольких минут."
 
 #: .\jfkerman_outline\templates\account\password_reset_from_key.html:12
 msgid "Bad Token"
@@ -316,9 +357,9 @@ msgid ""
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
 "a>."
 msgstr ""
-"Ссылка для сброса пароля недействительна, возможно, она уже была использована. "
-"Пожалуйста, запросите <a href=\"%(passwd_reset_url)s\">новую ссылку для сброса</"
-"a>."
+"Ссылка для сброса пароля недействительна, возможно, она уже была "
+"использована. Пожалуйста, запросите <a href=\"%(passwd_reset_url)s\">новую "
+"ссылку для сброса</a>."
 
 #: .\jfkerman_outline\templates\account\password_reset_from_key.html:30
 msgid "change password"
@@ -373,9 +414,9 @@ msgid ""
 "finalize the signup process. Please contact us if you do not receive it "
 "within a few minutes."
 msgstr ""
-"На ваш адрес было отправлено письмо для подтверждения. Перейдите по ссылке, чтобы "
-"завершить процесс регистрации. Пожалуйста, свяжитесь с нами, если вы не получили "
-"письмо в течении нескольких минут."
+"На ваш адрес было отправлено письмо для подтверждения. Перейдите по ссылке, "
+"чтобы завершить процесс регистрации. Пожалуйста, свяжитесь с нами, если вы "
+"не получили письмо в течении нескольких минут."
 
 #: .\jfkerman_outline\templates\account\verified_email_required.html:12
 msgid ""
@@ -384,7 +425,8 @@ msgid ""
 "verify ownership of your e-mail address. "
 msgstr ""
 "Доступ к этому разделу сайта требует подтверждения личности. \n"
-"Для этого необходимо подтвердить принадлежность вашего адреса электронной почты. "
+"Для этого необходимо подтвердить принадлежность вашего адреса электронной "
+"почты. "
 
 #: .\jfkerman_outline\templates\account\verified_email_required.html:17
 msgid ""
@@ -392,10 +434,11 @@ msgid ""
 "verification. Please click on the link inside this e-mail. Please\n"
 "contact us if you do not receive it within a few minutes."
 msgstr ""
-"На ваш адрес было отправлено письмо для подтверждения. Перейдите по ссылке, чтобы \n"
-"подтвердить вашу личность. Пожалуйста, свяжитесь с нами, если вы не получили \n"
+"На ваш адрес было отправлено письмо для подтверждения. Перейдите по ссылке, "
+"чтобы \n"
+"подтвердить вашу личность. Пожалуйста, свяжитесь с нами, если вы не "
+"получили \n"
 "письмо в течении нескольких минут."
-
 
 #: .\jfkerman_outline\templates\account\verified_email_required.html:22
 #, python-format
@@ -403,199 +446,271 @@ msgid ""
 "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
 "mail address</a>."
 msgstr ""
-"<strong>Примечание:</strong> вы все равно можете <a href=\"%(email_url)s\">изменить "
-"адрес электронной почты</a>."
+"<strong>Примечание:</strong> вы все равно можете <a "
+"href=\"%(email_url)s\">изменить адрес электронной почты</a>."
 
-#: .\jfkerman_outline\templates\base.html:90
+#: .\jfkerman_outline\templates\base.html:93
 msgid "Logged in as:"
 msgstr "Вы вошли как:"
 
-#: .\jfkerman_outline\templates\base.html:95
+#: .\jfkerman_outline\templates\base.html:98
 msgid "Profile at SSO"
 msgstr "Профиль в SSO"
 
-#: .\jfkerman_outline\templates\base.html:96
-#: .\jfkerman_outline\templates\servers\outline_server_list.html:19
+#: .\jfkerman_outline\templates\base.html:99
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:30
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:31
 msgid "My keys"
 msgstr "Мои ключи"
 
-#: .\jfkerman_outline\templates\base.html:103
+#: .\jfkerman_outline\templates\base.html:106
 msgid "Server List"
 msgstr "Список серверов"
 
-#: .\jfkerman_outline\templates\base.html:143
+#: .\jfkerman_outline\templates\base.html:146
 msgid "Usage policy"
 msgstr "Условия использования"
 
-#: .\jfkerman_outline\templates\base.html:146
+#: .\jfkerman_outline\templates\base.html:149
 msgid "Contacts"
 msgstr "Контакты"
 
-#: .\jfkerman_outline\templates\base.html:151
+#: .\jfkerman_outline\templates\base.html:154
 msgid "For developers:"
 msgstr "Для разработчиков:"
 
-#: .\jfkerman_outline\templates\base.html:152
+#: .\jfkerman_outline\templates\base.html:155
 msgid "Server status"
 msgstr "Состояние серверов"
 
-#: .\jfkerman_outline\templates\base.html:154
+#: .\jfkerman_outline\templates\base.html:157
 msgid "Social:"
 msgstr "Социальные сети:"
 
-#: .\jfkerman_outline\templates\base.html:155
+#: .\jfkerman_outline\templates\base.html:158
 msgid "Nothing to see here"
 msgstr "Тут пока ничего нет"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:4
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:4
 msgid "Delete key"
 msgstr "Удалить ключ"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:7
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:7
 msgid "Are you sure you want to delete the key"
 msgstr "Вы действительно хотите удалить ключ"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:7
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:7
 msgid "This action cannot be undone."
 msgstr "Это действие нельзя отменить."
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:12
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:20
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete.html:12
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:20
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
-#: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete.html:13
-#: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:21
-#: .\jfkerman_outline\templates\servers\outline_server_key_create.html:16
-#: .\jfkerman_outline\templates\servers\outline_server_key_update.html:24
-msgid "Cancel"
-msgstr "Отмена"
-
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:4
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:49
-#: .\jfkerman_outline\templates\servers\user_keys.html:64
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:48
+#: .\jfkerman_outline\templates\servers\user_keys.html:72
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:4
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:48
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:77
 msgid "Delete All Keys"
 msgstr "Удалить все ключи"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:7
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:7
 msgid "Are you sure you want to delete"
 msgstr "Вы действительно хотите удалить"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:7
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:7
 msgid "keys? This action cannot be undone."
 msgstr "ключ(ей)? Это действие нельзя отменить."
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:9
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:9
 msgid "Keys to be deleted:"
 msgstr "Удаляемые ключи:"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:12
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:9
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:12
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:9
 msgid "Key"
 msgstr "Ключ"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_confirm_delete_all.html:12
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_confirm_delete_all.html:12
 msgid "from server"
 msgstr "на сервере"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_create.html:6
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:47
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:46
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_create.html:6
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:46
 msgid "Create new key"
 msgstr "Создать новый ключ"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_create.html:12
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:19
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_create.html:12
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:19
 msgid "Server limit:"
 msgstr "Лимит трафика сервера:"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_create.html:15
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_create.html:15
 msgid "Create"
 msgstr "Создать"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:6
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:6
 msgid "Editing key"
 msgstr "Редактирование ключа"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:11
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:11
 msgid "Key for use in Outline client"
 msgstr "Ключ для использования в клиенте Outline"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:23
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:23
 msgid "Update"
 msgstr "Обновить"
 
 #: .\jfkerman_outline\templates\servers\outline_server_key_update.html:26
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:35
-#: .\jfkerman_outline\templates\servers\user_keys.html:28
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:34
+#: .\jfkerman_outline\templates\servers\user_keys.html:36
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_key_update.html:26
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:34
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:45
 msgid "Delete"
 msgstr "Удалить"
 
 #: .\jfkerman_outline\templates\servers\outline_server_keys.html:8
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:8
 msgid "Back to Servers"
 msgstr "Назад к серверам"
 
 #: .\jfkerman_outline\templates\servers\outline_server_keys.html:10
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:10
 msgid "Your keys:"
 msgstr "Ваши ключи:"
 
 #: .\jfkerman_outline\templates\servers\outline_server_keys.html:11
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:11
 msgid "key(s)"
 msgstr "ключ(ей)"
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:24
-#: .\jfkerman_outline\templates\servers\user_keys.html:16
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:23
+#: .\jfkerman_outline\templates\servers\user_keys.html:24
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:23
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:27
 msgid "No limit"
 msgstr "Не ограничено"
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:28
-#: .\jfkerman_outline\templates\servers\user_keys.html:21
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:27
+#: .\jfkerman_outline\templates\servers\user_keys.html:29
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:27
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:33
 msgid "Key:"
 msgstr "Ключ:"
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:28
-#: .\jfkerman_outline\templates\servers\user_keys.html:21
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:27
+#: .\jfkerman_outline\templates\servers\user_keys.html:29
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:27
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:35
 msgid "Copied!"
 msgstr "Скопировано!"
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:28
-#: .\jfkerman_outline\templates\servers\user_keys.html:21
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:27
+#: .\jfkerman_outline\templates\servers\user_keys.html:29
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:27
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:35
 msgid "Copy to clipboard"
 msgstr "Скопировать в буфер обмена"
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:29
-#: .\jfkerman_outline\templates\servers\user_keys.html:22
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:28
+#: .\jfkerman_outline\templates\servers\user_keys.html:30
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:28
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:37
 msgid "Created:"
 msgstr "Создан:"
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:34
-#: .\jfkerman_outline\templates\servers\user_keys.html:27
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:33
+#: .\jfkerman_outline\templates\servers\user_keys.html:35
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:33
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:43
 msgid "Edit"
 msgstr "Редактировать"
 
-#: .\jfkerman_outline\templates\servers\outline_server_keys.html:42
-#: .\jfkerman_outline\templates\servers\user_keys.html:35
+#: .\jfkerman_outline\templates\servers\outline_server_keys.html:41
+#: .\jfkerman_outline\templates\servers\user_keys.html:43
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_keys.html:41
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:51
 msgid "No keys found"
 msgstr "Ключи не найдены"
 
-#: .\jfkerman_outline\templates\servers\outline_server_list.html:4
-msgid "Server list"
-msgstr "Список серверов"
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:8
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:8
+#| msgid "Servers"
+msgid "Outline Servers"
+msgstr "Серверы Outline"
+
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:11
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:11
+#| msgid "Servers"
+msgid "VLESS Servers"
+msgstr "Серверы VLESS"
 
 #: .\jfkerman_outline\templates\servers\outline_server_list.html:14
+#| msgid "Server list"
+msgid "Outline Server list"
+msgstr "Список серверов Outline"
+
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:24
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:25
 msgid "Server URL:"
 msgstr "Адрес сервера:"
 
-#: .\jfkerman_outline\templates\servers\outline_server_list.html:15
+#: .\jfkerman_outline\templates\servers\outline_server_list.html:25
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:26
 msgid "Port:"
 msgstr "Порт:"
 
-#: .\jfkerman_outline\templates\servers\user_keys.html:5
+#: .\jfkerman_outline\templates\servers\user_keys.html:7
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:9
+msgid "Outline Keys"
+msgstr "Ключи Outline"
+
+#: .\jfkerman_outline\templates\servers\user_keys.html:10
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:13
+msgid "VLESS Keys"
+msgstr "Ключи VLESS"
+
+#: .\jfkerman_outline\templates\servers\user_keys.html:13
 msgid "Your keys"
 msgstr "Ваши ключи"
 
-#: .\jfkerman_outline\templates\servers\user_keys.html:20
+#: .\jfkerman_outline\templates\servers\user_keys.html:28
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:31
 msgid "Server:"
 msgstr "Сервер:"
+
+#: .\jfkerman_outline\templates\servers_marzban\marzban_server_list.html:15
+#| msgid "Server list"
+msgid "VLESS Server list"
+msgstr "Список серверов VLESS"
+
+#: .\jfkerman_outline\templates\servers_marzban\user_keys.html:16
+#| msgid "Your keys"
+msgid "Your VLESS keys"
+msgstr "Ваши ключи VLESS"
 
 #: .\jfkerman_outline\users\admin.py:23
 msgid "Personal info"
