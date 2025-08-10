@@ -1,8 +1,19 @@
 {% extends "base.html" %}
+
 {% load static i18n %}
 {% load datalimits %}
+
 {% block content %}
-    <h1>{% translate "Your keys" %}</h1>
+    <div class="w-100 d-flex gap-2 mb-3">
+        <div class="w-50">
+            <a href="{% url 'servers:my_keys' %}" class="button w-100 d-flex text-bg-secondary">{% translate 'Outline Keys' %}</a>
+        </div>
+        <div class="w-50">
+            <a href="{% url 'marzban_servers:my_keys' %}"
+               class="button w-100 d-flex text-white">{% translate 'VLESS Keys' %}</a>
+        </div>
+    </div>
+    <h1>{% translate "Your VLESS keys" %}</h1>
     <div class="d-flex flex-column gap-2 mb-3 mt-3">
         {% if keys %}
             {% for key in keys %}
@@ -17,27 +28,31 @@
                             {% endif %}
                         </div>
                         <p class="card-text">
-                            <strong>{% translate "Server:" %}</strong> <a href="{% url 'server_keys' key.server.slug %}">{{ key.server.name }}</a></br>
-                            <strong>{% translate "Key:" %}</strong> <a style="word-break: break-all;" href="{{ key.key }}" onclick="copyURI(event, '{% translate 'Copied!' %}')">{% translate "Copy to clipboard" %}</a></br>
-                            <strong>{% translate "Created:" %}</strong> {{ key.created_at }}
-                        </p>
-                    </div>
-                    <div class="card-block mr-auto p-2 flex-card-btn">
-                        <div class="btn-group-vertical h-100 w-100 d-flex">
-                            <a href="{% url 'mykeys_update' key.pk %}" class="btn btn-secondary h-100 d-inline-flex align-items-center text-center">{% translate "Edit" %}</a>
-                            <a href="{% url 'mykeys_delete' key.pk %}" class="btn btn-danger h-100 d-inline-flex align-items-center text-center">{% translate "Delete" %}</a>
-                        </div>
-                    </div>
+                            <strong>{% translate "Server:" %}</strong> <a href="{% url 'marzban_servers:server_keys' key.server.slug %}">{{ key.server.name }}</a>
+                        </br />
+                        <strong>{% translate "Key:" %}</strong> <a style="word-break: break-all"
+    href="{{ key.key }}"
+    onclick="copyURI(event, '{% translate 'Copied!' %}')">{% translate "Copy to clipboard" %}</a>
+                    </br />
+                    <strong>{% translate "Created:" %}</strong> {{ key.created_at }}
+                </p>
+            </div>
+            <div class="card-block mr-auto p-2 flex-card-btn">
+                <div class="btn-group-vertical h-100 w-100 d-flex">
+                    <a href="{% url 'marzban_servers:mykeys_update' key.pk %}"
+                       class="btn btn-secondary h-100 d-inline-flex align-items-center text-center">{% translate "Edit" %}</a>
+                    <a href="{% url 'marzban_servers:mykeys_delete' key.pk %}"
+                       class="btn btn-danger h-100 d-inline-flex align-items-center text-center">{% translate "Delete" %}</a>
                 </div>
-            {% endfor %}
-        {% else %}
-        <div class="alert alert-secondary" role="alert">
-            {% translate "No keys found" %}
+            </div>
         </div>
-    {% endif %}
-    </div>
-    </br>
-    <div class="d-flex justify-content-between">
+    {% endfor %}
+{% else %}
+    <div class="alert alert-secondary" role="alert">{% translate "No keys found" %}</div>
+{% endif %}
+</div>
+</br />
+<div class="d-flex justify-content-between">
     {% if page_obj.has_other_pages %}
         <div class="pagination">
             {% if page_obj.has_previous == 1 %}
@@ -49,9 +64,7 @@
                 {% if page_obj.number == i %}
                     <a class="active">{{ i }}</a>
                 {% else %}
-                    {% if page_obj.number <= 10 %}
-                        <a href="?page={{ i }}">{{ i }}</a>
-                    {% endif %}
+                    {% if page_obj.number <= 10 %}<a href="?page={{ i }}">{{ i }}</a>{% endif %}
                 {% endif %}
             {% endfor %}
             {% if page_obj.has_next == 1 %}
@@ -59,8 +72,8 @@
             {% else %}
                 <a class="disabled">&raquo;</a>
             {% endif %}
-        </div>			
+        </div>
     {% endif %}
-    <a class="btn btn-danger" href="{% url 'delete_all_keys' %}">{% translate "Delete All Keys" %}</a>
-    </div>
+    <a class="btn btn-danger" href="{% url 'marzban_servers:delete_all_keys' %}">{% translate "Delete All Keys" %}</a>
+</div>
 {% endblock content %}

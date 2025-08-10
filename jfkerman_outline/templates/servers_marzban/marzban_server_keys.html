@@ -3,7 +3,7 @@
 {% load datalimits %}
 {% block content %}
     <div class="d-flex flex-row justify-content-between align-items-center flex-wrap gap-3">
-            <button class="btn btn-secondary" onclick="window.location.href='{% url 'server_list' %}'">
+            <button class="btn btn-secondary" onclick="window.location.href='{% url 'marzban_servers:server_list' %}'">
                 <i class="icons-arrow icons-arrow-left"></i>
                 {% translate "Back to Servers" %}
             </button>
@@ -30,8 +30,8 @@
                     </div>
                     <div class="card-block mr-auto p-2 flex-card-btn">
                         <div class="btn-group-vertical h-100 w-100 d-flex">
-                            <a href="{% url 'server_key_update' key.server.slug key.pk %}" class="btn btn-secondary h-100 d-inline-flex align-items-center text-center">{% translate "Edit" %}</a>
-                            <a href="{% url 'server_key_delete' key.server.slug key.pk %}" class="btn btn-danger h-100 d-inline-flex align-items-center text-center">{% translate "Delete" %}</a>
+                            <a href="{% url 'marzban_servers:server_key_update' key.server.slug key.pk %}" class="btn btn-secondary h-100 d-inline-flex align-items-center text-center">{% translate "Edit" %}</a>
+                            <a href="{% url 'marzban_servers:server_key_delete' key.server.slug key.pk %}" class="btn btn-danger h-100 d-inline-flex align-items-center text-center">{% translate "Delete" %}</a>
                         </div>
                     </div>
                 </div>
@@ -43,9 +43,9 @@
         {% endif %}
     </div>
     <div class="d-flex justify-content-between">
-        <a href="{% url 'server_key_create' server_slug %}" class="btn btn-primary">{% translate "Create new key" %}</a>
+        <a href="{% url 'marzban_servers:server_key_create' server_slug %}" class="btn btn-primary">{% translate "Create new key" %}</a>
 
-        <a class="btn btn-danger" href="{% url 'delete_server_keys' server_slug %}">{% translate "Delete All Keys" %}</a>
+        <a class="btn btn-danger" href="{% url 'marzban_servers:delete_server_keys' server_slug %}">{% translate "Delete All Keys" %}</a>
     </div>
     </br>
 {% endblock content %}

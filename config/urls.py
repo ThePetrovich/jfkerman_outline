@@ -13,8 +13,8 @@ urlpatterns = [
     path("users/", include("jfkerman_outline.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path("", include("jfkerman_outline.servers.urls", namespace="outline_servers")),
-    path("marzban/", include("jfkerman_outline.servers_marzban.urls", namespace="marzban_servers")),
+    path("outline/", include("jfkerman_outline.servers.urls", namespace="outline_servers")),
+    path("vless/", include("jfkerman_outline.servers_marzban.urls", namespace="marzban_servers")),
     path("", OutlineServerListView.as_view(), name="home"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

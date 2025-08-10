@@ -3,7 +3,6 @@ from jfkerman_outline.servers_marzban.views import *
 
 app_name = "servers_marzban"
 urlpatterns = [
-    path("", MarzbanServerListView.as_view(), name="home"),
     path("servers/", MarzbanServerListView.as_view(), name="server_list"),
     path("servers/<slug:server_slug>/keys/", MarzbanServerKeyView.as_view(), name="server_keys"),
     path("servers/<slug:server_slug>/keys/create/", MarzbanServerKeyCreateView.as_view(), name="server_key_create"),

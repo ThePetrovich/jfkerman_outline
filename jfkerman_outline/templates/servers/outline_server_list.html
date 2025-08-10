@@ -3,10 +3,15 @@
 {% load socialaccount %}
 {% get_providers as socialaccount_providers %}
 {% block content %}
-
+    <div class="w-100 d-flex gap-2 mb-3">
+        <div class="w-50">
+            <a href="{% url 'home' %}" class="button w-100 d-flex text-white">{% translate  'Outline Servers' %}</a>
+        </div>
+        <div class="w-50">
+            <a href="{% url 'marzban_servers:server_list' %}" class="button w-100 d-flex text-bg-secondary">{% translate 'VLESS Servers' %}</a>
+        </div>
+    </div>
     <h1>{% translate "Outline Server list" %}</h1>
-    <a href="/" class="button">Outline Servers</a>
-    <a href ="/servers_vless" class="button">Vless Servers</a>
     <div class="d-flex gap-2 mb-3 mt-3 flex-column">
         {% for server in servers %}
             <div class="card d-flex flex-row flex-wrap">

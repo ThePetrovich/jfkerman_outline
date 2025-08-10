@@ -23,7 +23,7 @@
                     <button type="submit" class="btn btn-primary">{% translate "Update" %}</button>
                     <a class="btn btn-secondary" href="{{ previous }}">{% translate "Cancel" %}</a>
                 </div>
-                <a class="btn btn-danger" href="{% url 'server_key_delete' key.server.slug key.pk %}">{% translate "Delete" %}</a>
+                <a class="btn btn-danger" href="{% url 'marzban_servers:server_key_delete' key.server.slug key.pk %}">{% translate "Delete" %}</a>
             </div>
         </form>
     </div>

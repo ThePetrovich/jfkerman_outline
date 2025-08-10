@@ -2,6 +2,14 @@
 {% load static i18n %}
 {% load datalimits %}
 {% block content %}
+    <div class="w-100 d-flex gap-2 mb-3">
+        <div class="w-50">
+            <a href="{% url 'servers:my_keys' %}" class="button w-100 d-flex text-white">{% translate  'Outline Keys' %}</a>
+        </div>
+        <div class="w-50">
+            <a href="{% url 'marzban_servers:my_keys' %}" class="button w-100 d-flex text-bg-secondary">{% translate 'VLESS Keys' %}</a>
+        </div>
+    </div>
     <h1>{% translate "Your keys" %}</h1>
     <div class="d-flex flex-column gap-2 mb-3 mt-3">
         {% if keys %}
@@ -17,15 +25,15 @@
                             {% endif %}
                         </div>
                         <p class="card-text">
-                            <strong>{% translate "Server:" %}</strong> <a href="{% url 'server_keys' key.server.slug %}">{{ key.server.name }}</a></br>
+                            <strong>{% translate "Server:" %}</strong> <a href="{% url 'servers:server_keys' key.server.slug %}">{{ key.server.name }}</a></br>
                             <strong>{% translate "Key:" %}</strong> <a style="word-break: break-all;" href="{{ key.key }}" onclick="copyURI(event, '{% translate 'Copied!' %}')">{% translate "Copy to clipboard" %}</a></br>
                             <strong>{% translate "Created:" %}</strong> {{ key.created_at }}
                         </p>
                     </div>
                     <div class="card-block mr-auto p-2 flex-card-btn">
                         <div class="btn-group-vertical h-100 w-100 d-flex">
-                            <a href="{% url 'mykeys_update' key.pk %}" class="btn btn-secondary h-100 d-inline-flex align-items-center text-center">{% translate "Edit" %}</a>
-                            <a href="{% url 'mykeys_delete' key.pk %}" class="btn btn-danger h-100 d-inline-flex align-items-center text-center">{% translate "Delete" %}</a>
+                            <a href="{% url 'servers:mykeys_update' key.pk %}" class="btn btn-secondary h-100 d-inline-flex align-items-center text-center">{% translate "Edit" %}</a>
+                            <a href="{% url 'servers:mykeys_delete' key.pk %}" class="btn btn-danger h-100 d-inline-flex align-items-center text-center">{% translate "Delete" %}</a>
                         </div>
                     </div>
                 </div>
@@ -61,6 +69,6 @@
             {% endif %}
         </div>			
     {% endif %}
-    <a class="btn btn-danger" href="{% url 'delete_all_keys' %}">{% translate "Delete All Keys" %}</a>
+    <a class="btn btn-danger" href="{% url 'servers:delete_all_keys' %}">{% translate "Delete All Keys" %}</a>
     </div>
 {% endblock content %}
