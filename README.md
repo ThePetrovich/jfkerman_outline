@@ -1,8 +1,21 @@
 # jfkerman-outline
 
-Quick and dirty Outline VPN key manager for [jfkerman.me](https://jfkerman.me). Written over 2 evenings, so don't expect any quality code or documentation here.
+Quick and dirty VPN key manager for [jfkerman.me](https://jfkerman.me). Written over 2 evenings, so don't expect any quality code or documentation here.
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
+
+## Features
+- Allows users to create Outline VPN keys for configured servers.
+- Also supports Marzban VLESS keys.
+- Very basic admin interface for managing servers and keys.
+- Hacky integration with OIDC for user authentication.
+
+## Known Issues
+- The code is a mess, I wrote it in a hurry and didn't bother to clean it up.
+- The OIDC integration relies on hardcoding the provider ID in templates.
+- A lot of code duplication between Outline and Marzban views.
+- Key storage is insecure, keys are stored in plaintext in the database. Not really a big issue since who cares, this just to watch Youtube in Russia, but still.
+- Small bugs here and there, I didn't test everything thoroughly. Again, this was thrown together over a couple evenings.
 
 License: MIT
 
@@ -17,7 +30,7 @@ The following details how to deploy this application.
 ---
 **NOTE**
 
-I am a dum dum who never learned to use Docker. Please send me a PR if you figure it out.
+I never bothered with setting up Docker. Please send me a PR if you figure it out.
 
 ---
 
@@ -34,8 +47,8 @@ I am a dum dum who never learned to use Docker. Please send me a PR if you figur
 8. Create a superuser with `python manage.py createsuperuser`.
 9. Install a web server (e.g. Nginx) and configure it to serve the application using WSGI/ASGI.
 10. Create systemd service files for the application and the web server (I forgot to add example files, you are on your own ¯\\\_(ツ)\_/¯). Systemd should point to the `start.sh` file.
-11. Create a cron job (or a systemd timer) to run `schedule.sh` every 5 minutes.
-12. Start your services, it should hopefully work.
+11. Create another systemd service for the scheduler, and point it at `schedule.sh`.
+12. Pray & start your services.
 
 ## Adding servers
 
