@@ -30,7 +30,7 @@ The following details how to deploy this application.
 ---
 **NOTE**
 
-I never bothered with setting up Docker. Please send me a PR if you figure it out.
+I never bothered setting up Docker. Please send me a PR if you figure it out.
 
 ---
 
