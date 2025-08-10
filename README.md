@@ -1,6 +1,6 @@
 # jfkerman-outline
 
-Quick and dirty VPN key manager for [jfkerman.me](https://jfkerman.me). Written over 2 evenings, so don't expect any quality code or documentation here.
+Quick and dirty VPN key manager for [jfkerman.me](https://jfkerman.me). Written over 2 evenings. Use at your own risk!
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 
@@ -11,11 +11,14 @@ Quick and dirty VPN key manager for [jfkerman.me](https://jfkerman.me). Written 
 - Hacky integration with OIDC for user authentication.
 
 ## Known Issues
-- The code is a mess, I wrote it in a hurry and didn't bother to clean it up.
-- The OIDC integration relies on hardcoding the provider ID in templates.
+- The code stinks. Even vibecoding it would be an improvement, sigh...
+- OIDC integration relies on hardcoded `jfkerman-sso` provider ID in templates.
+- Direct user authentication is not implemented, users are expected to log in via OIDC. All wiring should be there, though.
 - A lot of code duplication between Outline and Marzban views.
-- Key storage is insecure, keys are stored in plaintext in the database. Not really a big issue since who cares, this just to watch Youtube in Russia, but still.
+- VPN API calls block processing while waiting for a response, which is not ideal.
+- Key storage is insecure, keys are stored in plaintext in the database. Not really a big issue since who cares, this is just to watch Youtube in Russia, but still.
 - Small bugs here and there, I didn't test everything thoroughly. Again, this was thrown together over a couple evenings.
+- Only keys added via user/admin interface are managed, there is no way to import existing keys from the server as they would not be linked to any user. As a consequence, deleting keys directly on the server (with Outline Manager / Marzban) will not remove them from the database (orphaned keys).
 
 License: MIT
 
@@ -25,7 +28,7 @@ Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings
 
 ## Deployment
 
-The following details how to deploy this application.
+The following details how to deploy this application. This is a pretty standard Django deployment, most guides should work.
 
 ---
 **NOTE**
@@ -36,7 +39,7 @@ I never bothered to set up Docker. Please send me a PR if you figure it out.
 
 ### Bare metal
 
-0. Clone the repository.
+0. Clone the repository. Create venv, install requirements with `pip install -r requirements/production.txt`.
 1. Configure the settings for your production server (see [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html)).
 2. Add your server's IP to `ALLOWED_HOSTS` in `config/settings/production.py`.
 3. Set `DEBUG = False`.
@@ -44,27 +47,28 @@ I never bothered to set up Docker. Please send me a PR if you figure it out.
 5. Create necessary directories for media and static files, and update `MEDIA_ROOT` and `STATIC_ROOT` in `config/settings/production.py`.
 6. Run `python manage.py collectstatic`.
 7. Run `python manage.py migrate`.
-8. Create a superuser with `python manage.py createsuperuser`.
-9. Install a web server (e.g. Nginx) and configure it to serve the application using WSGI/ASGI.
-10. Create systemd service files for the application and the web server (I forgot to add example files, you are on your own ¯\\\_(ツ)\_/¯). Systemd should point to the `start.sh` file.
-11. Create another systemd service for the scheduler, and point it at `schedule.sh`.
-12. Pray & start your services.
+8. For translations, run `python manage.py compilemessages`.
+9. Create a superuser with `python manage.py createsuperuser`.
+10. Install a web server (such as Nginx) and configure it to serve the application using WSGI/ASGI.
+11. Create systemd service files for the application and the web server (I forgot to add example files, you are on your own ¯\\\_(ツ)\_/¯). Systemd should point to the `start.sh` file.
+12. Create another systemd service for the scheduler, and point it at `schedule.sh`.
+13. Pray & start your services.
 
 ## Adding servers
 
-To add a server, log in to the admin interface and create a new `Outline Server` object. The `Outline Server` object has the following fields:
+To add a server, log in to the admin interface and create a new `Outline Server` object. `Outline Server` object has the following fields:
 
 | Field | Description |
 | --- | --- |
 | Name | A human-readable name for the server. |
 | Slug | A unique identifier for the server. |
-| Country | The country where the server is located; this field is used to display flags. See possible options in `jfkerman_outline/static/images/country` |
-| Url | The URL of the server for client connections. |
-| Port | The port of the server for client connections. |
-| API URL | The URL of the server for API connections, you can find it in installation logs or in Outline Manager. |
+| Country | Country where the server is located; this field is used to display flags. See possible options in `jfkerman_outline/static/images/country` |
+| Url | URL of the server for client connections. |
+| Port | Port of the server for client connections. |
+| API URL | URL of the server for API connections, you can find it in installation logs or in Outline Manager. |
 | API Cert | SHA256 fingerprint of the server's API certificate (self-signed). |
-| Keys per user | The number of keys a user can generate for this server. |
-| Max data per key | Max monthly data limit for a single key. |
+| Keys per user | Number of keys a user can generate for this server. |
+| Max data per key | Max monthly data limit for a single key in megabytes. |
 
 
 Command to obtain API Cert SHA256 fingerprint:
