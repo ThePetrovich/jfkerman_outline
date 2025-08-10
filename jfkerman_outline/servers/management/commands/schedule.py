@@ -9,9 +9,17 @@ from django.core.management.base import BaseCommand
 from django_apscheduler.jobstores import DjangoJobStore
 from django_apscheduler.models import DjangoJobExecution
 from django_apscheduler import util
+from asgiref.sync import async_to_sync
 
 from jfkerman_outline.servers.models import OutlineServerKey, OutlineServer
 from outline_vpn.outline_vpn import OutlineVPN
+
+from jfkerman_outline.servers_marzban.models import MarzbanServerKey, MarzbanServer
+from marzpy import Marzban
+from marzpy.api.send_requests import send_request
+
+import traceback
+
 
 logger = logging.getLogger(__name__)
 
@@ -35,6 +43,23 @@ def update_usage_stats():
                 key.save()
     except Exception as e:
         logger.error(f"Failed to update usage stats: {e}")
+        pass
+
+    try:
+        marzban_servers = MarzbanServer.objects.all()
+
+        for server in marzban_servers:
+            client = Marzban(server.api_user, server.api_password, server.api_url)
+            token = async_to_sync(client.get_token)()
+
+            keys = MarzbanServerKey.objects.all().filter(server=server)
+
+            for key in keys:
+                result = async_to_sync(send_request)(f"user/{key.config_id}/usage", token, "get")["usages"]
+                key.data_used = result[0]['used_traffic']
+                key.save()
+    except Exception as e:
+        logger.exception(e)
         pass
         
 
@@ -64,7 +89,7 @@ class Command(BaseCommand):
 
         scheduler.add_job(
             update_usage_stats,
-            trigger=CronTrigger(minute="*/5"),    # Every 5 minutes
+            trigger=CronTrigger(minute="*/1"),    # Every 5 minutes
             id="update_usage_stats",    # The `id` assigned to each job MUST be unique
             max_instances=1,
             replace_existing=True,

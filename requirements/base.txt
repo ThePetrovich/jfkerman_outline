@@ -17,3 +17,4 @@ django-apscheduler==0.6.2
 
 outline-vpn-api==6.1.0
 marzpy
+shortuuid

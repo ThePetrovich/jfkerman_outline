@@ -13,7 +13,10 @@ class MarzbanServer(models.Model):
     port = models.IntegerField(default=0)
 
     api_url = models.CharField(max_length=255)
-    api_token = models.CharField(max_length=255)
+    api_user = models.CharField(max_length=255)
+    api_password = models.CharField(max_length=255)
+
+    vless_inbound = models.CharField(max_length=255, default='', blank=True)
 
     keys_per_user = models.IntegerField(default=0)
     max_data_per_key = models.IntegerField(default=0)
@@ -31,6 +34,8 @@ class MarzbanServerKey(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='marzban_keys')
 
+    key_id = models.UUIDField(
+        default=None, null=True, blank=True, db_index=True)
     name = models.CharField(max_length=100, verbose_name=_(
         'Key name'), help_text=_('Up to 100 characters long'))
 

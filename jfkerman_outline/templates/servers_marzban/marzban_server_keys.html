@@ -24,7 +24,7 @@
                             {% endif %}
                         </div>
                         <p class="card-text">
-                            <strong>{% translate "Key:" %}</strong> <a style="word-break: break-all;" href="{{ key.key }}" onclick="copyURI(event, '{% translate 'Copied!' %}')">{% translate "Copy to clipboard" %}</a></br>
+                            <strong>{% translate "Key:" %}</strong> <a style="word-break: break-all;" href="{{ key.config }}" onclick="copyURI(event, '{% translate 'Copied!' %}')">{% translate "Copy to clipboard" %}</a></br>
                             <strong>{% translate "Created:" %}</strong> {{ key.created_at }}
                         </p>
                     </div>

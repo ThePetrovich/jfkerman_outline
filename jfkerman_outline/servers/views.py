@@ -60,9 +60,9 @@ class OutlineServerKeyCreateView(LoginRequiredMixin, SuccessMessageMixin, Create
 
     def get_success_url(self):
         if self.object == None:
-            return reverse_lazy('server_list')
+            return reverse_lazy('servers:server_list')
         else:
-            return reverse_lazy('server_keys', kwargs={'server_slug': self.kwargs['server_slug']})
+            return reverse_lazy('servers:server_keys', kwargs={'server_slug': self.kwargs['server_slug']})
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -112,7 +112,7 @@ class OutlineServerKeyUpdateView(LoginRequiredMixin, SuccessMessageMixin, Update
         context = super(OutlineServerKeyUpdateView, self).get_context_data(**kwargs)
         context['server_slug'] = self.object.server.slug
         context['data_limit'] = self.object.server.max_data_per_key
-        context['previous'] = self.request.META.get('HTTP_REFERER', reverse_lazy('my_keys'))
+        context['previous'] = self.request.META.get('HTTP_REFERER', reverse_lazy('servers:my_keys'))
         return context
     
     def get_success_url(self):
@@ -120,9 +120,9 @@ class OutlineServerKeyUpdateView(LoginRequiredMixin, SuccessMessageMixin, Update
             return reverse_lazy('server_list')
         else:
             if 'server_slug' not in self.kwargs:
-                return reverse_lazy('my_keys')
+                return reverse_lazy('servers:my_keys')
             else:
-                return reverse_lazy('server_keys', kwargs={'server_slug': self.kwargs['server_slug']})
+                return reverse_lazy('servers:server_keys', kwargs={'server_slug': self.kwargs['server_slug']})
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
@@ -169,7 +169,7 @@ class OutlineServerKeyDeleteView(LoginRequiredMixin, SuccessMessageMixin, Delete
 
     def get_context_data(self, **kwargs):
         context = super(OutlineServerKeyDeleteView, self).get_context_data(**kwargs)
-        context['previous'] = self.request.META.get('HTTP_REFERER', reverse_lazy('my_keys'))
+        context['previous'] = self.request.META.get('HTTP_REFERER', reverse_lazy('servers:my_keys'))
         return context
 
     def get_object(self, queryset=None):
@@ -180,16 +180,14 @@ class OutlineServerKeyDeleteView(LoginRequiredMixin, SuccessMessageMixin, Delete
 
     def get_success_url(self):
         if self.object == None:
-            return reverse_lazy('server_list')
+            return reverse_lazy('servers:server_list')
         else:
             if 'server_slug' not in self.kwargs:
-                return reverse_lazy('my_keys')
+                return reverse_lazy('servers:my_keys')
             else:
-                return reverse_lazy('server_keys', kwargs={'server_slug': self.kwargs['server_slug']})
-        
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-
+                return reverse_lazy('servers:server_keys', kwargs={'server_slug': self.kwargs['server_slug']})
+            
+    def form_valid(self, form):
         try:
             client = OutlineVPN(self.object.server.api_url, self.object.server.api_cert)
 
@@ -205,9 +203,7 @@ class OutlineServerKeyDeleteView(LoginRequiredMixin, SuccessMessageMixin, Delete
             messages.error(self.request, _("Failed to delete key: external API error"), extra_tags='danger')
             raise e
 
-        messages.info(self.request, self.success_message, tags='danger')
-
-        return super(OutlineServerKeyDeleteView, self).delete(request, *args, **kwargs)
+        return super().form_valid(form)
     
 
 class OutlineServerDeleteAllKeysView(LoginRequiredMixin, ListView):
@@ -224,7 +220,7 @@ class OutlineServerDeleteAllKeysView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(OutlineServerDeleteAllKeysView, self).get_context_data(**kwargs)
         context['key_count'] = len(context['keys'])
-        context['previous'] = self.request.META.get('HTTP_REFERER', reverse_lazy('my_keys'))
+        context['previous'] = self.request.META.get('HTTP_REFERER', reverse_lazy('servers:my_keys'))
         return context
     
     def post(self, request, *args, **kwargs):
@@ -240,7 +236,7 @@ class OutlineServerDeleteAllKeysView(LoginRequiredMixin, ListView):
                 raise e
 
         messages.info(self.request, _("All keys deleted successfully"))
-        return HttpResponseRedirect(reverse_lazy('server_list'))
+        return HttpResponseRedirect(reverse_lazy('servers:server_list'))
     
 
 class OutlineServerDetailView(DetailView):
