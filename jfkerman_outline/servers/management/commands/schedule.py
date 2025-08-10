@@ -89,7 +89,7 @@ class Command(BaseCommand):
 
         scheduler.add_job(
             update_usage_stats,
-            trigger=CronTrigger(minute="*/1"),    # Every 5 minutes
+            trigger=CronTrigger(minute="*/5"),    # Every 5 minutes
             id="update_usage_stats",    # The `id` assigned to each job MUST be unique
             max_instances=1,
             replace_existing=True,
